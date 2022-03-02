@@ -1,4 +1,5 @@
 // the player1 always plays first - MAS NÃO PRECISA SER SEMPRE ASSIM, PARSA
+// lembrar de acrescentar os "returns" quando encontrar um true
 var players_symbols = ['X', 'O'];
 var turn_of = 0;
 var game_over = false;

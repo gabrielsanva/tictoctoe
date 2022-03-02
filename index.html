@@ -9,15 +9,11 @@
     <title>tic tac toe</title>
     <script src="index.js"></script>
     <style>
-        table,
-        td {
-            border: 1px solid lightgray
-        }
-
         td {
             width: 80px;
             height: 80px;
             font-size: 40px;
+            border: 1px solid lightgray
         }
     </style>
 </head>
@@ -26,10 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                painal de informações
-            </div>
-            <div class="col">
-                <table class="text-center table table-dark">
+                <table class="text-white text-center bg-dark">
                     <div id="board">
                         <tr>
                             <td id="00" onclick="turn(this.id)"></td>
@@ -49,7 +42,9 @@
                     </div>
                 </table>
             </div>
-
+            <div class="col">
+                painal de informações
+            </div>
         </div>
     </div>
 
