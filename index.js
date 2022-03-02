@@ -1,9 +1,9 @@
 // the player1 always plays first - MAS NÃO PRECISA SER SEMPRE ASSIM, PARSA
-var players_symbols = ['A', 'B'];
+var players_symbols = ['X', 'O'];
 var turn_of = 0;
 var game_over = false;
 var message_game_over = "";
-var tipo_vitoria;
+var victory;
 // the board size is defined by dimension_board + 1, for example if the dimension is 2, the board will be 3x3
 var dimension_board = 2;
 var board = [
@@ -32,6 +32,33 @@ function turn(id_coord) {
         check_game_over();
     }
 }
+function coloring_board(type_victory) {
+    if (type_victory[0] == 'c') {
+        for (x = 0; x <= dimension_board; x++) {
+            id_to_color = String(x) + String(type_victory[1]);
+            document.getElementById(id_to_color).classList.add('bg-success');
+        }
+    }
+    if (type_victory[0] == 'r') {
+        for (x = 0; x <= dimension_board; x++) {
+            id_to_color = String(type_victory[1]) + String(x);
+            document.getElementById(id_to_color).classList.add('bg-success');
+        }
+    }
+    if (type_victory[0] == 'd' && type_victory[1] == 0) {
+        for (x = 0; x <= dimension_board; x++) {
+            id_to_color = String(x) + String(x);
+            document.getElementById(id_to_color).classList.add('bg-success');
+        }
+    }
+    if (type_victory[0] == 'd' && type_victory[1] == 1) {
+        for (x = 0; x <= dimension_board; x++) {
+            id_to_color = String(x) + String(dimension_board - x);
+            document.getElementById(id_to_color).classList.add('bg-success');
+        }
+    }
+}
+
 function check_game_over() {
 
     // checking win in rows
@@ -46,12 +73,12 @@ function check_game_over() {
             if (count_player0_row == dimension_board) {
                 message_game_over = "The player with " + players_symbols[0] + " won!";
                 game_over = true;
-                tipo_vitoria = "l" + x;
+                victory = ["r", x, 0];
             }
             if (count_player1_row == dimension_board) {
                 message_game_over = "The player with " + players_symbols[1] + " won!";
                 game_over = true;
-                tipo_vitoria = "l" + x;
+                victory = ["r", x, 1];
             }
         }
 
@@ -68,12 +95,12 @@ function check_game_over() {
             if (count_player0_col == dimension_board) {
                 message_game_over = "The player with " + players_symbols[0] + " won!";
                 game_over = true;
-                tipo_vitoria = "c" + x;
+                victory = ["c", x, 0];
             }
             if (count_player1_col == dimension_board) {
                 message_game_over = "The player with " + players_symbols[1] + " won!";
                 game_over = true;
-                tipo_vitoria = "c" + x;
+                victory = ["c", x, 1];
             }
         }
     }
@@ -89,12 +116,12 @@ function check_game_over() {
         if (count_player0_principal_diagonal == dimension_board) {
             message_game_over = "The player with " + players_symbols[0] + " won!";
             game_over = true;
-            tipo_vitoria = "dp";
+            victory = ["d", 0, 0];
         }
         if (count_player1_principal_diagonal == dimension_board) {
             message_game_over = "The player with " + players_symbols[1] + " won!";
             game_over = true;
-            tipo_vitoria = "dp";
+            victory = ["d", 0, 1];
         }
     }
 
@@ -109,15 +136,16 @@ function check_game_over() {
         if (count_player0_secundary_diagonal == dimension_board) {
             message_game_over = "The player with " + players_symbols[0] + " won!";
             game_over = true;
-            tipo_vitoria = "ds";
+            victory = ["d", 1, 0];
         }
         if (count_player1_secundary_diagonal == dimension_board) {
             message_game_over = "The player with " + players_symbols[1] + " won!";
             game_over = true;
-            tipo_vitoria = "ds";
+            victory = ["d", 1, 1];
         }
     }
     if (game_over) {
-        console.log(message_game_over + tipo_vitoria);
+        console.log(message_game_over);
+        coloring_board(victory);
     }
 }
