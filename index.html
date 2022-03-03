@@ -13,7 +13,7 @@
             width: 80px;
             height: 80px;
             font-size: 40px;
-            border: 1px solid lightgray
+            border: 1px solid black
         }
     </style>
 </head>
@@ -21,36 +21,34 @@
 <body class="bg-light">
     <div class="container-fluid">
 
-        <div class="row text-center bg-dark text-white">
+        <div class="row text-center text-primary">
             <div class="col">
                 <p class="display-6">Tic Toc Toe</p>
             </div>
         </div>
 
+        <!--
+            The algorithm is generic enough to handle any board size larger than 2, 
+            so you can try it out by changing the parameters.
+            If you want, you can use custom_board() function to generate boards of different sizes.
+        -->
         <div class="row d-flex justify-content-around m-3">
-            <button class="btn btn-dark col m-1" onclick="restart(1)">Board 2x2</button>
-            <button class="btn btn-dark col m-1" onclick="restart(2)">Board 3x3</button>
-            <button class="btn btn-dark col m-1" onclick="restart(3)">Board 4x4</button>
-            <button class="btn btn-dark col m-1" onclick="restart(4)">Board 5x5</button>
+            <button class="btn btn-primary col m-1" onclick="restart(1)">Board 2x2</button>
+            <button class="btn btn-primary col m-1" onclick="restart(2)">Board 3x3</button>
+            <button class="btn btn-primary col m-1" onclick="restart(3)">Board 4x4</button>
+            <button class="btn btn-primary col m-1" onclick="restart(4)">Board 5x5</button>
         </div>
 
-        <!--The algorithm is generic enough to serve a board of any size-->
-
-        <div class="row d-flex justify-content-start m-3">
-            <p class="text-dark col-sm-4" style="font-size: 20px;">Enter a value to custom your board:</p>
-            <input id='custom_board' class="bg-dark text-center text-white col-sm-1">
-            <button class="btn btn-dark col-sm-1" onclick="custom_board()">Ok</button>
-        </div>
         <div class="d-flex justify-content-center">
             <div class="row text-center m-3">
-                <table class="text-white text-center bg-dark" id="board">
+                <table class="text-dark text-center" id="board">
                 </table>
             </div>
         </div>
 
         <div class="d-flex justify-content-center">
             <div class="row text-center ">
-                <button class="btn btn-dark mt-3 mb-3" onclick="restart(false)">Restart</button>
+                <button class="btn btn-primary mt-3 mb-3" onclick="restart(false)">Restart</button>
             </div>
         </div>
 
@@ -60,6 +58,15 @@
             </div>
         </div>
     </div>
+    <footer class="container-fluid d-flex justify-content-center m-3">
+        <div class="row">
+            <p class="text-center">How to contact me:</p>
+            <a class="col" href="https://github.com/gabrielsanva"><img src="img/gh.png" width="64" height="64"></a>
+            <a class="col" href="https://www.linkedin.com/in/gabrielsanva/"><img src="img/in.png" width="64"
+                    height="64"></a>
+            <a class="col" href="https://twitter.com/gabrielsanva"><img src="img/t.png" width="64" height="64"></a>
+        </div>
+    </footer>
     <script src="index.js"></script>
 </body>
 

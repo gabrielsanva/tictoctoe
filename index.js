@@ -12,6 +12,7 @@ var dimension_board = 2; // the board size is defined by dimension_board + 1
     restart(2);
 })();
 
+// if you want, you can use this function to generate boards of different sizes
 function custom_board() {
     dimension = parseInt(document.getElementById('custom_board').value);
     if ((dimension) > 1) {
@@ -68,26 +69,32 @@ function coloring_board(type_victory) {
     if (type_victory[0] == 'c') {
         for (x = 0; x <= dimension_board; x++) {
             id_to_color = String(x) + String(type_victory[1]);
-            document.getElementById(id_to_color).classList.add('bg-success');
+            document.getElementById(id_to_color).classList.add('bg-success', 'text-white');
+
         }
+        return 0;
     }
     if (type_victory[0] == 'r') {
         for (x = 0; x <= dimension_board; x++) {
             id_to_color = String(type_victory[1]) + String(x);
-            document.getElementById(id_to_color).classList.add('bg-success');
+            document.getElementById(id_to_color).classList.add('bg-success', 'text-white');
         }
+        return 0;
+
     }
     if (type_victory[0] == 'd' && type_victory[1] == 0) {
         for (x = 0; x <= dimension_board; x++) {
             id_to_color = String(x) + String(x);
-            document.getElementById(id_to_color).classList.add('bg-success');
+            document.getElementById(id_to_color).classList.add('bg-success', 'text-white');
         }
+        return 0;
     }
     if (type_victory[0] == 'd' && type_victory[1] == 1) {
         for (x = 0; x <= dimension_board; x++) {
             id_to_color = String(x) + String(dimension_board - x);
-            document.getElementById(id_to_color).classList.add('bg-success');
+            document.getElementById(id_to_color).classList.add('bg-success', 'text-white');
         }
+        return 0;
     }
 }
 
