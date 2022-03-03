@@ -23,3 +23,4 @@ Eu fiz esse pequeno projeto para treinar principalmente minhas habilades em Java
 - Scores (placar)
 - Player's name (nome dos jogadores)
 - Custom symbol (customização dos símbolos)
+- Player vs. COM (jogador vs. computador)
