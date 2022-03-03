@@ -24,3 +24,9 @@ Eu fiz esse pequeno projeto para treinar principalmente minhas habilades em Java
 - Player's name (nome dos jogadores)
 - Custom symbol (customização dos símbolos)
 - Player vs. COM (jogador vs. computador)
+
+## Contact (contato)
+
+- [GitHub](https://github.com/gabrielsanva)
+- [LinkedIn](https://www.linkedin.com/in/gabrielsanva/)
+- [Twitter](https://twitter.com/gabrielsanva)
