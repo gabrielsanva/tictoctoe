@@ -1,19 +1,49 @@
-// the player1 always plays first - MAS NÃO PRECISA SER SEMPRE ASSIM, PARSA
-// lembrar de acrescentar os "returns" quando encontrar um true
-var players_symbols = ['X', 'O'];
-var turn_of = 0;
-var game_over = false;
-var message_game_over = "";
-var victory;
-// the board size is defined by dimension_board + 1, for example if the dimension is 2, the board will be 3x3
-var dimension_board = 2;
-var board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-];
-function create_board() {
+var players_symbols = ['X', 'O']; // symbols used by players
+var turn_of = 0; //this is used to define which player's turn it is
+var game_over = false; // this helps in checking if the game is over
+var message_game_over = ""; // message shown at the end of the game
+var victory; // this helps identify how to win (row, column or diagonal)
+var limit_turns; // this is used to set the maximum number of moves depending on the size of the board
+var number_turn = 1;// turn counter used to check tie
+var dimension_board = 2; // the board size is defined by dimension_board + 1
 
+//the game starts by default with a 3x3 board -> 2+1 = 3
+(function () {
+    restart(2);
+})();
+
+function custom_board() {
+    dimension = parseInt(document.getElementById('custom_board').value);
+    if ((dimension) > 1) {
+        restart(dimension - 1);
+    }
+    else {
+        alert("you need to enter an integer value greater than 1")
+    }
+}
+
+function create_board(dimension) {
+    let new_board = "";
+    board = [];
+    for (x = 0; x <= dimension; x++) {
+        new_board += "<tr>\n";
+        board.push([]);
+        for (y = 0; y <= dimension; y++) {
+            new_board += "<td id='" + x + y + "' onclick='turn(this.id)'></td>\n";
+            board[x].push('');
+        }
+        new_board += "</tr>\n";
+    }
+    game_over = false;
+    document.getElementById('board').innerHTML = new_board;
+}
+
+function restart(change) {
+    number_turn = 1;
+    document.getElementById('output').innerHTML = "";
+    if (!change === false) dimension_board = change;
+    create_board(dimension_board);
+    limit_turns = (dimension_board + 1) ** 2;
 }
 
 function change_player() {
@@ -31,6 +61,7 @@ function turn(id_coord) {
             change_player();
         }
         check_game_over();
+        number_turn++;
     }
 }
 function coloring_board(type_victory) {
@@ -145,8 +176,13 @@ function check_game_over() {
             victory = ["d", 1, 1];
         }
     }
+    if (number_turn == limit_turns && !game_over) {
+        game_over = true;
+        message_game_over = "It's a draw!"
+        victory = 0;
+    }
     if (game_over) {
-        console.log(message_game_over);
+        document.getElementById('output').innerHTML = message_game_over;
         coloring_board(victory);
     }
 }
