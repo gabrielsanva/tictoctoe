@@ -60,9 +60,9 @@ function turn(id_coord) {
             document.getElementById(id_coord).innerHTML = players_symbols[turn_of];
             board[row][col] = players_symbols[turn_of];
             change_player();
+            number_turn++;
         }
         check_game_over();
-        number_turn++;
     }
 }
 function coloring_board(type_victory) {
