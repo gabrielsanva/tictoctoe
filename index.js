@@ -40,7 +40,7 @@ function create_board(dimension) {
 }
 
 function restart(change) {
-    number_turn = 1;
+    number_turn = 0;
     document.getElementById('output').innerHTML = "";
     if (!change === false) dimension_board = change;
     create_board(dimension_board);
