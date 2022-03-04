@@ -1,6 +1,6 @@
 # TicTocToe (Jogo da Velha)
 
-## 🎮 [Play](https://jogo-da-velha-delta.vercel.app/)
+## 🎮 [Play](https://jogo-da-velha-gabrielsanva.vercel.app/)
 
 ## About (Sobre)
 
