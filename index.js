@@ -1,4 +1,5 @@
 var players_symbols = ['X', 'O']; // symbols used by players
+var players_names = ['Player 1', 'Player 2']; // players' name
 var turn_of = 0; //this is used to define which player's turn it is
 var game_over = false; // this helps in checking if the game is over
 var message_game_over = ""; // message shown at the end of the game
@@ -8,6 +9,8 @@ var number_turn = 1;// turn counter used to check tie
 var dimension_board = 2; // the board size is defined by dimension_board + 1
 var score0 = document.getElementById('player0_score');
 var score1 = document.getElementById('player1_score');
+var name0 = document.getElementById('player0_name');
+var name1 = document.getElementById('player1_name');
 
 //the game starts by default with a 3x3 board -> 2+1 = 3
 (function () {
@@ -15,14 +18,21 @@ var score1 = document.getElementById('player1_score');
 })();
 
 // if you want, you can use this function to generate boards of different sizes
-function custom_board() {
-    dimension = parseInt(document.getElementById('custom_board').value);
+function custom_board(dimension) {
     if ((dimension) > 1) {
         restart(dimension - 1);
     }
     else {
         alert("you need to enter an integer value greater than 1")
     }
+}
+
+function edit_player(player) {
+    players_names[player] = prompt('Edit name', players_names[player]);
+    players_symbols[player] = prompt('Edit symbol', players_symbols[player]);
+    if (player == 0) name0.innerHTML = players_names[player] + "|";
+    else name1.innerHTML = "|" + players_names[player];
+    restart(false);
 }
 
 function create_board(dimension) {
@@ -47,6 +57,12 @@ function restart(change) {
     if (!change === false) dimension_board = change;
     create_board(dimension_board);
     limit_turns = (dimension_board + 1) ** 2;
+}
+
+function reset_score() {
+    restart(false);
+    score0.innerHTML = 0;
+    score1.innerHTML = 0;
 }
 
 function change_player() {
@@ -106,7 +122,6 @@ function uptade_score(winner) {
 }
 
 function check_game_over() {
-
     // checking win in rows
     for (x = 0; x <= dimension_board; x++) {
         count_player0_row = 0;
@@ -150,7 +165,6 @@ function check_game_over() {
             }
         }
     }
-
     // checking principal diagonal
     count_player0_principal_diagonal = 0;
     count_player1_principal_diagonal = 0;
@@ -170,7 +184,6 @@ function check_game_over() {
             victory = ["d", 0, 1];
         }
     }
-
     // checking secundary diagonal
     count_player0_secundary_diagonal = 0;
     count_player1_secundary_diagonal = 0;

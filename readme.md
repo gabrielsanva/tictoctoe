@@ -22,9 +22,9 @@ Others boards
 
 ## Next implementations (próximas implementações)
 
-- Scores (placar)
-- Player's name (nome dos jogadores)
-- Custom symbol (customização dos símbolos)
+- ~Scores (placar)~ ✅
+- ~Player's name (nome dos jogadores)~ ✅
+- ~Custom symbol (customização dos símbolos)~ ✅
 - Player vs. COM (jogador vs. computador)
 
 ## Contact (contato)
