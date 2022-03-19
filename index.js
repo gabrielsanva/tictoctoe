@@ -6,6 +6,8 @@ var victory; // this helps identify how to win (row, column or diagonal)
 var limit_turns; // this is used to set the maximum number of moves depending on the size of the board
 var number_turn = 1;// turn counter used to check tie
 var dimension_board = 2; // the board size is defined by dimension_board + 1
+var score0 = document.getElementById('player0_score');
+var score1 = document.getElementById('player1_score');
 
 //the game starts by default with a 3x3 board -> 2+1 = 3
 (function () {
@@ -96,6 +98,11 @@ function coloring_board(type_victory) {
         }
         return 0;
     }
+}
+
+function uptade_score(winner) {
+    if (winner == 0) score0.innerHTML = 1 + parseInt(score0.innerHTML);
+    else if (winner == 1) score1.innerHTML = 1 + parseInt(score1.innerHTML);
 }
 
 function check_game_over() {
@@ -191,5 +198,6 @@ function check_game_over() {
     if (game_over) {
         document.getElementById('output').innerHTML = message_game_over;
         coloring_board(victory);
+        uptade_score(victory[2]);
     }
 }
