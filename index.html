@@ -32,7 +32,7 @@
             so you can try it out by changing the parameters.
             If you want, you can use custom_board() function to generate boards of different sizes.
         -->
-        <div class="row d-flex justify-content-around m-3">
+        <div class="row d-flex justify-content-around">
             <button class="btn btn-primary col m-1" onclick="restart(1)">Board 2x2</button>
             <button class="btn btn-primary col m-1" onclick="restart(2)">Board 3x3</button>
             <button class="btn btn-primary col m-1" onclick="restart(3)">Board 4x4</button>
@@ -51,7 +51,7 @@
 
         </div>
         <div class="d-flex justify-content-center">
-            <div class="row text-center m-3">
+            <div class="row text-center mt-2 mb-2">
                 <table class="text-dark text-center" id="board">
                 </table>
             </div>
@@ -59,23 +59,23 @@
 
         <div class="d-flex justify-content-center">
             <div class="row text-center ">
-                <button class="btn btn-primary mt-3 mb-3" onclick="restart(false)">Restart</button>
-                <button class="btn btn-dark mt-3 mb-3" onclick="reset_score()">Reset Score</button>
+                <button class="btn btn-primary mb-2" onclick="restart(false)">Restart</button>
+                <button class="btn btn-dark mb-2" onclick="reset_score()">Reset Score</button>
             </div>
         </div>
         <div class="d-flex justify-content-center">
-            <div class="row text-center ">
+            <div class="row text-center">
                 <p class="col" id="output"></p>
             </div>
         </div>
     </div>
-    <footer class="container-fluid d-flex justify-content-center m-3">
+    <footer class="container-fluid d-flex justify-content-center mb-2">
         <div class="row">
-            <p class="text-center">How to contact me:</p>
-            <a class="col" href="https://github.com/gabrielsanva"><img src="img/gh.png" width="64" height="64"></a>
-            <a class="col" href="https://www.linkedin.com/in/gabrielsanva/"><img src="img/in.png" width="64"
-                    height="64"></a>
-            <a class="col" href="https://twitter.com/gabrielsanva"><img src="img/t.png" width="64" height="64"></a>
+            <p class="text-center">Contact me:</p>
+            <a class="col" href="https://github.com/gabrielsanva"><img src="img/gh.png" width="48" height="48"></a>
+            <a class="col" href="https://www.linkedin.com/in/gabrielsanva/"><img src="img/in.png" width="48"
+                    height="48"></a>
+            <a class="col" href="https://twitter.com/gabrielsanva"><img src="img/t.png" width="48" height="48"></a>
         </div>
     </footer>
     <script src="index.js"></script>

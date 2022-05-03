@@ -29,7 +29,7 @@ function custom_board(dimension) {
 
 function edit_player(player) {
     players_names[player] = prompt('Edit name', players_names[player]);
-    players_symbols[player] = prompt('Edit symbol', players_symbols[player]);
+    players_symbols[player] = prompt('Edit symbol\n\n\n you can also insert emojis like these (Ctrl+C and Ctrl+V):\n\n❤️\t😀\t⚽\t💡\t🪙\t🇧🇷\t🍎\t🤡\n', players_symbols[player]);
     if (player == 0) name0.innerHTML = players_names[player] + "|";
     else name1.innerHTML = "|" + players_names[player];
     restart(false);
